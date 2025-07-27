@@ -1,0 +1,6 @@
+fastapi[all]>=0.115.0
+pydantic>=2.9.2
+pydantic[email]
+uvicorn>=0.31.0
+pytest>=8.4.1
+requests>=2.31.0
