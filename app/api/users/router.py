@@ -1,6 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
 from app.dao.data import data_users
+
+data_users = data_users()
 router = APIRouter(prefix='/api/users', tags=['/api/users'])
 
 @router.get("/all", summary="LIST of all users")
