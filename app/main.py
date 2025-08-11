@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi_pagination import add_pagination
 from app.api.users.router import router as router_users
 from app.api.status.router import router as router_status
 app = FastAPI(
@@ -6,6 +7,7 @@ app = FastAPI(
     description="Тестовый проект на FastAPI",
     version="1.0.0"
 )
+add_pagination(app)
 
 @app.get("/")
 async def home_page():

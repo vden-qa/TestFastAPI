@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+from fastapi_pagination import Page, paginate
 from http import HTTPStatus
 
 from app.api.users.schemas import User
@@ -14,6 +15,16 @@ router = APIRouter(prefix='/api/users', tags=['/api/users'])
             status_code=HTTPStatus.OK)
 async def get_all() -> list[User]:
     return data_users
+
+@router.get("/paginate",
+            summary="paginate users",
+            status_code=HTTPStatus.OK,
+            response_model=Page[User])
+async def get_paginate_users():
+    page_users = paginate(data_users)
+    if not bool(page_users.items) :
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Page not found")
+    return page_users
 
 
 @router.get("/{user_id}",
