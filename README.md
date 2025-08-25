@@ -22,7 +22,9 @@ http://127.0.0.1:8000/docs
 Тестируйте свое API с помощью pytest. По умолчанию тесты запускаются локально:  
 pytest
 
-
+docker-compose up -d 
+docker-compose start
+docker-compose stop
 
 Теперь ваш проект готов к работе! Приятного кодинга 😊  
 1:26:23
